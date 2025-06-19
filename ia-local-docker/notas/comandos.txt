@@ -1,0 +1,17 @@
+# Activar Docker Model Runner
+docker desktop enable model-runner --no-tcp
+
+# Descargar modelo liviano
+docker model pull ai/gemma3-qat:1B-Q4_K_M
+
+# Navegar al proyecto
+cd ~/Desktop/ia-local-docker
+
+# Levantar la WebUI con el modelo
+docker compose up
+
+# Abrir en navegador
+http://localhost:3000
+
+# Ejecutar script Python
+python3 preguntar_ia.py
