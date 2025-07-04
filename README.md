@@ -1,53 +1,49 @@
-
 # 📘 Laboratorio Local de IA con Docker Model Runner
 
 ## ✨ Objetivo del taller
+Este laboratorio te guía paso a paso para ejecutar un modelo de lenguaje (LLM) localmente usando Docker Model Runner, con dos interfaces posibles:
 
-Este laboratorio guía paso a paso cómo ejecutar un modelo de lenguaje local (LLM) usando [Docker Model Runner](https://docs.docker.com/ai/model-runner/) y Open WebUI, sin necesidad de conexión a Internet ni acceso a la API de OpenAI.
+- **Open WebUI**: Una interfaz web estilo ChatGPT.
+- **Python (Streamlit y consola)**: Para quienes desean personalizar su experiencia o integrar con sus propios proyectos.
 
 ---
 
 ## 🧰 Requisitos
-
-- ✅ Docker Desktop v4.40 o superior instalado
-- ✅ Terminal (macOS, Linux o Git Bash/PowerShell en Windows)
-- ✅ Conexión inicial a Internet para descargar el modelo (solo la primera vez)
-
----
-
-## 📁 Estructura del proyecto
-
-```
-ia-local-docker/
-├── docker-compose.yaml       # Archivo para levantar el modelo y WebUI
-├── preguntar_ia.py           # (opcional) Script en Python para usar la API local
-├── README.md                 # Esta guía
-└── notas/
-    └── comandos.txt          # Historial de comandos ejecutados
-```
+- ✅ Docker Desktop v4.40 o superior
+- ✅ Terminal (macOS, Linux, Git Bash o PowerShell)
+- ✅ Conexión inicial para descargar el modelo `.gguf`
+- ✅ Python 3.9+ con `llama-cpp-python` y `streamlit` para uso personalizado
 
 ---
 
-## 🧪 Paso a paso del laboratorio
+## 🗂️ Estructura del proyecto
+
+```
+llama_lab/
+├── app.py                # Chatbot en Streamlit
+├── main.py               # Interfaz por consola con selección de modelo
+├── requirements.txt      # Dependencias Python (llama-cpp-python, streamlit)
+├── README.md             # Esta guía
+├── LICENSE
+├── .gitignore
+└── models/               # Carpeta donde se guarda el modelo GGUF
+```
+
+---
+
+## 🧪 Parte 1: Laboratorio Web con Docker y Open WebUI
 
 ### 🔹 Paso 1: Activar Docker Model Runner
-
 ```bash
 docker desktop enable model-runner --no-tcp
 ```
 
----
-
-### 🔹 Paso 2: Descargar el modelo
-
+### 🔹 Paso 2: Descargar un modelo ligero
 ```bash
 docker model pull ai/gemma3-qat:1B-Q4_K_M
 ```
 
----
-
 ### 🔹 Paso 3: Crear el archivo `docker-compose.yaml`
-
 ```yaml
 services:
   open-webui:
@@ -72,33 +68,58 @@ volumes:
   open-webui-data:
 ```
 
----
-
-### 🔹 Paso 4: Levantar el entorno
-
+### 🔹 Paso 4: Ejecutar el entorno
 ```bash
 docker compose up
 ```
 
----
-
-### 🔹 Paso 5: Acceder a la interfaz
-
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+### 🔹 Paso 5: Abrir la interfaz en tu navegador
+[http://localhost:3000](http://localhost:3000)
 
 ---
 
-### 🐍 Paso 6: (Opcional) Usar el modelo desde Python
+## 🐍 Parte 2: Laboratorio en Python (Opcional)
 
-*(Este paso se realizará más adelante.)*
+### 1️⃣ Ejecutar en consola
+```bash
+python main.py
+```
+Selecciona un modelo `.gguf` y comienza a escribir tus prompts.
+
+### 2️⃣ Ejecutar interfaz gráfica con Streamlit
+```bash
+streamlit run app.py
+```
+
+Interactúa con el modelo local usando una interfaz estilo chat. Ideal para demos o personalización.
 
 ---
 
-### 🧼 Para detener todo:
+## 📦 Requisitos de Python
 
+Instala dependencias con:
+
+```bash
+pip install -r requirements.txt
+```
+
+Contenido de `requirements.txt`:
+```
+llama-cpp-python==0.3.10
+streamlit
+```
+
+---
+
+## 🧼 Para detener Docker
 ```bash
 Ctrl + C
 docker compose down
 ```
 
-Gracias por ser parte de este taller 💫 ¡Ahora tienes un laboratorio de IA corriendo en tu máquina! 🧪🐳
+---
+
+## 💫 Créditos y agradecimientos
+
+Gracias por ser parte de este taller de IA local 💻🐳  
+¡Ahora tienes un laboratorio mágico de LLMs corriendo directamente en tu máquina! ✨
