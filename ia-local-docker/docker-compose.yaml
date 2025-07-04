@@ -12,10 +12,9 @@ services:
       - ai-runner
 
   ai-runner:
-    provider:
-      type: model
-      options:
-        model: ai/gemma3-qat:1B-Q4_K_M
+    image: ai/gemma3-qat:1B-Q4_K_M
+    ports:
+      - "12434:80"
 
 volumes:
   open-webui-data:
