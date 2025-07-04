@@ -1,4 +1,4 @@
-# 📘 Laboratorio Local de IA con Docker Model Runner
+# 📘 Laboratorio Local de IA 
 
 ## ✨ Objetivo del taller
 Este laboratorio te guía paso a paso para ejecutar un modelo de lenguaje (LLM) localmente usando Docker Model Runner, con dos interfaces posibles:
