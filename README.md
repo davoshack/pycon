@@ -17,19 +17,21 @@ Este laboratorio te guía paso a paso para ejecutar un modelo de lenguaje (LLM) 
 ---
 
 ## 🗂️ Estructura del proyecto
-
 ```
-llama_lab/
-├── app.py                # Chatbot en Streamlit
-├── main.py               # Interfaz por consola con selección de modelo
-├── requirements.txt      # Dependencias Python (llama-cpp-python, streamlit)
-├── README.md             # Esta guía
+ia-local-docker/
+├── notas/
+│   ├── app.py
+│   └── docker-compose.yaml
+├── llama_lab/
+│   ├── app.py
+│   ├── main.py
+│   ├── requirements.txt
+│   └── README.md  ← Este es el que actualizaste
 ├── LICENSE
-├── .gitignore
-└── models/               # Carpeta donde se guarda el modelo GGUF
+└── README.md  ← Este probablemente es un duplicado
+
 ```
 
----
 
 ## 🧪 Parte 1: Laboratorio Web con Docker y Open WebUI
 
