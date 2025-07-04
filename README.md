@@ -18,17 +18,18 @@ Este laboratorio te guía paso a paso para ejecutar un modelo de lenguaje (LLM) 
 
 ## 🗂️ Estructura del proyecto
 ```
-ia-local-docker/
+📁 ia-local-docker/
 ├── notas/
 │   ├── app.py
 │   └── docker-compose.yaml
-├── llama_lab/
-│   ├── app.py
-│   ├── main.py
-│   ├── requirements.txt
-│   └── README.md  ← Este es el que actualizaste
-├── LICENSE
-└── README.md  ← Este probablemente es un duplicado
+
+📁 llama_lab/
+├── app.py
+├── main.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+
 
 ```
 
