@@ -1,4 +1,4 @@
-# 📘 Laboratorio Local de IA con Python y Docker
+# 📘 Laboratorio Local de IA 
 
 ## ✨ Objetivo del taller
 Este laboratorio te guía paso a paso para ejecutar un modelo de lenguaje (LLM) localmente usando herramientas open source. Explorarás dos caminos:
